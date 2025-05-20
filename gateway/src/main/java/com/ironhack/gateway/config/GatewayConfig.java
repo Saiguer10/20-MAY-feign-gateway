@@ -7,8 +7,18 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class GatewayConfig {
-// ups! Alguien ha hackeado esto y ahora no tenemos la config
 
+// ups! Alguien ha hackeado esto y ahora no tenemos la config
+    @Bean
+    public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
+        return builder.routes()
+                .route("user", r -> r.path("/api/user/**")
+                    .uri("lb://users-micro"))
+                .route("account", r -> r.path("/api/account/**")
+                    .uri("lb://accounts-micro")
+                ).build();
+
+    }
 }
 
 // ¿Qué es lb???
