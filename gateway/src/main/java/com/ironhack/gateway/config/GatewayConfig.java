@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class GatewayConfig {
 
-// ups! Alguien ha hackeado esto y ahora no tenemos la config
+// ups! Alguien ha hackeado esto y ahora no tenemos la config_
     @Bean
     public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
         return builder.routes()
